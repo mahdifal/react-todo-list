@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import uuid from "uuid";
+import "./app.css";
 
 class App extends Component {
   state = {
@@ -63,22 +64,24 @@ class App extends Component {
   render() {
     return (
       <>
-        <div className="container">
-          <div className="row">
-            <div className="col-10 mx-auto col-md-8 mt-5">
-              <h3 className="text-center text-capitalize">simple todo app</h3>
-              <TodoInput
-                item={this.state.item}
-                handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit}
-                editItem={this.state.editItem}
-              />
-              <TodoList
-                items={this.state.items}
-                clearList={this.clearList}
-                handleDelete={this.handleDelete}
-                handleEdit={this.handleEdit}
-              />
+        <div className="my-background d-flex align-items-center min-vh-100">
+          <div className="container card">
+            <div className="row">
+              <div className="col-10 mx-auto col-md-8 mt-5">
+                <h3 className="text-center text-capitalize">simple todo app</h3>
+                <TodoInput
+                  item={this.state.item}
+                  handleChange={this.handleChange}
+                  handleSubmit={this.handleSubmit}
+                  editItem={this.state.editItem}
+                />
+                <TodoList
+                  items={this.state.items}
+                  clearList={this.clearList}
+                  handleDelete={this.handleDelete}
+                  handleEdit={this.handleEdit}
+                />
+              </div>
             </div>
           </div>
         </div>
