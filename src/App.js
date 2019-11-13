@@ -24,7 +24,8 @@ class App extends Component {
     e.preventDefault();
     const newItem = {
       id: this.state.id,
-      title: this.state.item
+      title: this.state.item,
+      isDone: false
     };
 
     const updatedItems = [...this.state.items, newItem];
@@ -61,6 +62,17 @@ class App extends Component {
     });
   };
 
+  handleIsDone = id => {
+    const filterdItems = this.state.items.filter(item => item.id !== id);
+    const selectedItem = this.state.items.find(item => item.id === id);
+    selectedItem.isDone = !selectedItem.isDone;
+    this.setState({
+      ...this.state,
+      id: id,
+      items: [...filterdItems, selectedItem]
+    });
+  };
+
   render() {
     return (
       <>
@@ -80,6 +92,8 @@ class App extends Component {
                   clearList={this.clearList}
                   handleDelete={this.handleDelete}
                   handleEdit={this.handleEdit}
+                  handleIsDone={this.handleIsDone}
+                  isDone={this.state.isDone}
                 />
               </div>
             </div>
