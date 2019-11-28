@@ -73,6 +73,17 @@ class App extends Component {
     });
   };
 
+  componentDidMount() {
+    localStorage.getItem("todo_items") &&
+      this.setState({
+        items: JSON.parse(localStorage.getItem("todo_items"))
+      });
+  }
+
+  UNSAFE_componentWillUpdate(props, state) {
+    localStorage.setItem("todo_items", JSON.stringify(state.items));
+  }
+
   render() {
     return (
       <>
