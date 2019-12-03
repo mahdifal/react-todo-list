@@ -92,6 +92,15 @@ class App extends Component {
             <div className="row">
               <div className="col-10 mx-auto col-md-8 mt-5">
                 <h3 className="text-center text-capitalize">simple todo app</h3>
+                <div className="text-center">
+                  <a
+                    href="https://github.com/mahdifal"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <i className="fab fa-github fa-3x"></i>
+                  </a>
+                </div>
                 <TodoInput
                   item={this.state.item}
                   handleChange={this.handleChange}
